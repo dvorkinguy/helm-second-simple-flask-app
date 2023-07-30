@@ -1,0 +1,12 @@
+appName: second-simple-flask-app
+
+port: 80
+
+configmap:
+  name: second-simple-flask-app-configmap-v1
+  data:
+    CUSTOM_HEADER: 'This app was deployed with helm!'
+
+image:
+  name: dvorkinguy/second-simple-flask-app
+  tag: latest
