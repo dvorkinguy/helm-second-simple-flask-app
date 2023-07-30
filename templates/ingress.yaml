@@ -14,4 +14,4 @@ spec:
           service:
             name: helm-second-simple-flask-app  # Replace with the name of the Argo CD service
             port:
-              number: 443  # Replace with the port number of the Argo CD service (443 for HTTPS)
+              number: 80  # Replace with the port number of the Argo CD service (443 for HTTPS)
