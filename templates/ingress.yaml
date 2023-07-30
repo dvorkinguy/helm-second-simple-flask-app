@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-ingress
+  namespace: argocd  # Replace with the namespace where Argo CD is deployed
+spec:
+  rules:
+  - host: flask.notjustdevops.com  # Replace with your desired hostname
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: helm-second-simple-flask-app  # Replace with the name of the Argo CD service
+            port:
+              number: 443  # Replace with the port number of the Argo CD service (443 for HTTPS)
