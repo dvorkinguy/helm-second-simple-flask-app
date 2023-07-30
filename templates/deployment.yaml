@@ -17,10 +17,10 @@ spec:
         tier: frontend
     spec: # Pod spec
       containers:
-      - name: second-simple-flask-app-container
+      - name: mycontainer
         image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: 5000  # Update to port 5000, which is the port your Flask app runs on
+        - containerPort: 80
         envFrom:
         - configMapRef:
             name: {{ .Values.configmap.name }}
