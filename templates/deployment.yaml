@@ -1,33 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.appName }}
+  name: helm-second-simple-flask-app
   labels:
-    app: {{ .Values.appName }}
+    app: helm-second-simple-flask-app
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: 2
   selector:
     matchLabels:
-      app: {{ .Values.appName }}
-      tier: frontend
+      app: helm-second-simple-flask-app
   template:
     metadata:
       labels:
-        app: {{ .Values.appName }}
-        tier: frontend
-    spec: # Pod spec
+        app: helm-second-simple-flask-app
+    spec:
       containers:
-      - name: mycontainer
-        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+      - name: helm-second-simple-flask-app
+        #image: dvorkinguy/second-simple-flask-app:build-8
+        image: dvorkinguy/second-simple-flask-app:latest
         ports:
-        - containerPort: 80
-        envFrom:
-        - configMapRef:
-            name: {{ .Values.configmap.name }}
-        resources:
-          requests:
-            memory: "16Mi" 
-            cpu: "50m"    # 500milliCPUs (1/2 CPU)
-          limits:
-            memory: "128Mi"
-            cpu: "100m"
+        - containerPort: 5000
