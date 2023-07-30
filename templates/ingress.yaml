@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: helm-second-simple-flask-app-ingress
-  namespace: dev # Replace with the namespace where your Flask app is deployed
+  name: {{ include "helm-second-simple-flask-app.fullname" . }}-ingress
+  namespace: dev  # Replace with the namespace where your Flask app is deployed
 spec:
   rules:
   - host: flask.notjustdevops.com  # Replace with your desired hostname
