@@ -13,4 +13,4 @@ spec:
           service:
             name: {{ .Values.appName }}
             port:
-              number: {{ .Values.port }}
+              number: 80  # Forward traffic to port 80 of the backend service

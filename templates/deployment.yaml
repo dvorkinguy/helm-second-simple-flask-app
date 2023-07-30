@@ -20,7 +20,7 @@ spec:
       - name: second-simple-flask-app-container
         image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: 80
+        - containerPort: 5000  # Update to port 5000, which is the port your Flask app runs on
         envFrom:
         - configMapRef:
             name: {{ .Values.configmap.name }}
