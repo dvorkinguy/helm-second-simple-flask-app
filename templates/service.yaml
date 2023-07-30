@@ -8,8 +8,9 @@ spec:
   ports:
   - port: 80
     protocol: TCP
+    targetPort: 80
     name: flask
   selector:
     app: {{ .Values.appName }}
     tier: frontend
-  type: NodePort
+  type: LoadBalancer

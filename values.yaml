@@ -1,7 +1,5 @@
 appName: second-simple-flask-app
 
-port: 80
-
 configmap:
   name: second-simple-flask-app-configmap-v1
   data:
